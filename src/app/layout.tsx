@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Blog app",
@@ -17,9 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <NavBar paths={["Home", "Blog", "About"]}></NavBar>
-        {children}</body>
+      <body className={"min-h-screen bg-[rgb(15,23,42)]"}>
+        <NavBar paths={[{pathLabel: "Home", route: "/"}, {pathLabel: "Blog", route: "/blog"}, {pathLabel: "About", route: "/about"}]}></NavBar>
+        {children}
+      </body>
     </html>
   );
 }

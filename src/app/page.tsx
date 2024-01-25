@@ -1,18 +1,15 @@
 import { BlogCardList } from "../components/BlogCardList";
 import { BlogMetadata } from "@/utils/types";
-import { fetchBlogMetadatas, getBlogPostSlug } from "@/utils/blogposts";
+import { fetchBlogMetadatas } from "@/utils/blogposts";
 import Link from "next/link";
 
-export type WithSlug<T> = T & {
-    slug: string;
-}
-
 export default async function Home() {
-  const staticData: WithSlug<BlogMetadata>[] = (await fetchBlogMetadatas()).map(c=>({...c, slug: getBlogPostSlug(c)}))
+  const staticData: BlogMetadata[] = await fetchBlogMetadatas();
   return (
-    <main className="flex w-full min-h-screen flex-col items-center justify-between p-24 bg-slate-900">
+    <main className="flex w-full min-h-screen flex-col justify-evenly p-24 ">
+      <h1 className="text-sky-300 text-xl">Featured Articles</h1>
       <BlogCardList cards={staticData} cardsPerRow={3}></BlogCardList>
-      <Link className="border-0 bg-transparent hover:bg-sky-700 hover:shadow-sky-700 hover:shadow-xl p-2 rounded" href="/blog">View All</Link>
+      <Link className="bg-transparent hover:text-sky-500 p-2 rounded" href="/blog">View All</Link>
     </main>
   );
 }

@@ -4,9 +4,9 @@ import { BlogPostType } from "@/utils/types";
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
     try {
-        const staticData: BlogPostType = await fetchBlogBySlug(params.slug);
+        const postData: BlogPostType = await fetchBlogBySlug(params.slug);
         return (
-            <BlogPost blog={staticData}></BlogPost>
+            <BlogPost blog={postData}></BlogPost>
                 )
     }
     catch(e){

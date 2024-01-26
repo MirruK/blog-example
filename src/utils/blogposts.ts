@@ -1,16 +1,16 @@
 //import { fetchContentsForFilesInDir, fetchFileContents } from "./files";
 import { BlogMetadata, BlogPostType } from "./types";
-import { createClient } from "contentful";
+import { CreateClientParams, createClient } from "contentful";
 
 const CONTENTFUL_HEADERS = {
   space: process.env.CONTENTFUL_SPACE,
   environment: 'master', // defaults to 'master' if not set
   accessToken: process.env.CONTENTFUL_API_TOKEN
-};
+} as CreateClientParams;
 
 //const BLOGS_DIR = process.env.BLOGS_DIR || "";
 
-function blogPostDefaults(data: Partial<BlogMetadata>): BlogMetadata {
+function blogPostDefaults(data: any): BlogMetadata {
   const parsedCreated =
     data.created && new Date(data.created).toString() !== "Invalid Date"
       ? new Date(data.created)
@@ -25,7 +25,7 @@ function blogPostDefaults(data: Partial<BlogMetadata>): BlogMetadata {
     slug: data.slug?.toString() ?? "No slug",
     created: parsedCreated,
     modified: parsedModified,
-  };
+  } as BlogMetadata;
 }
 
 // TODO: Maybe refactor this to (await fetchAllPosts).find(p=>p.slug === slug);
@@ -52,7 +52,7 @@ const client = createClient(CONTENTFUL_HEADERS);
   }),
     content: contents.fields.postContent,
 }
-  return contentsParsed
+  return contentsParsed as BlogPostType
 }
 
 
@@ -72,7 +72,7 @@ const client = createClient(CONTENTFUL_HEADERS)
     title: item.fields.title,
     description: item.fields.description
   }),
-    content: item.fields.postContent,
+    content: item.fields.postContent as string,
 }));
 
 

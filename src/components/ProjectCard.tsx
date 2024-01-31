@@ -4,7 +4,7 @@ import Link from "next/link";
 export function ProjectCard({ project }: { project: ProjectCardType }) {
     return (
         <Link
-            href={`https://${project.githubLink}`}
+            href={`https://${project.githubUrl}`}
             target="_blank"
             rel="noopener"
             className="flex flex-[0_1_46%] flex-col min-w-[300px] gap-8 p-8 pb-16 pt-8 bg-slate-500 border-2 border-sky-500 rounded hover:shadow-sky-700 hover:shadow-xl"

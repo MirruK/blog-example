@@ -1,0 +1,29 @@
+fragment PinnedRepos on User {
+  pinnedItems(
+    types: [REPOSITORY]
+    first: 6
+  ) {
+    nodes{
+      __typename
+    ... on Repository {
+      name
+      createdAt
+      description
+      url
+      languages (first: 3) {
+        nodes{
+          name
+        }
+      }
+    }
+    }
+    totalCount
+  }
+}
+
+query getPinnedRepos ($login: String!){
+  user(login: $login) {
+    bio
+    ...PinnedRepos
+    }
+}

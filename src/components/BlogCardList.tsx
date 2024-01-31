@@ -1,19 +1,22 @@
-'use client'
+"use client";
 import { BlogPostCard } from "./BlogPostCard";
 import { BlogMetadata } from "@/utils/types";
 
-
 type BlogCardListProps = {
     cards: BlogMetadata[];
-    cardsPerRow: number;
-}
+};
 
-export function BlogCardList({cards, cardsPerRow} : BlogCardListProps) {
-    return ( 
-      <div className={`grid sm:grid-flow-row lg:grid-flow-col lg:grid-cols-${cardsPerRow}` + " gap-8"}>
-        {cards.map((c)=>(
-            <BlogPostCard key={c.title} header={c.title} undertext={c.description} slug={c.slug}></BlogPostCard>
-        ))}
-      </div>
-    )
+export function BlogCardList({ cards }: BlogCardListProps) {
+    return (
+        <div className={"flex flex-row justify-center flex-wrap gap-8 p-4"}>
+            {cards.map((c) => (
+                <BlogPostCard
+                    key={c.title}
+                    header={c.title}
+                    undertext={c.description}
+                    slug={c.slug}
+                ></BlogPostCard>
+            ))}
+        </div>
+    );
 }

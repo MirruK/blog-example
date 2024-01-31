@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={"min-h-screen bg-[rgb(15,23,42)]"}>
-        <NavBar paths={[{pathLabel: "Home", route: "/"}]}></NavBar>
+        <NavBar paths={[{ pathLabel: "Home", route: "/" }]}></NavBar>
         {children}
       </body>
     </html>

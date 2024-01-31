@@ -64,7 +64,7 @@ type PinnedRepoResponseType = {
 };
 
 export function pinnedProjectsDefaults(
-    data: Object
+    data: any
 ): (ProjectCardType | null)[] | null {
     if (data?.data?.user?.pinnedItems?.nodes) {
         const repos: PinnedRepoResponseType[] =

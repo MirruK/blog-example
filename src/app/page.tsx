@@ -8,8 +8,9 @@ export const revalidate = 120;
 
 export default async function Home() {
     const postData: BlogMetadata[] = await fetchAllBlogs();
-    const pinnedProjectsData = await fetchPinnedProjects();
+    let pinnedProjectsData = await fetchPinnedProjects();
     if (pinnedProjectsData === null || pinnedProjectsData === undefined) {
+        pinnedProjectsData = [];
         console.log("Graphql error in fetching pinned projects");
     }
     if (pinnedProjectsData) {

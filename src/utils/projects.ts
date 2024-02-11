@@ -22,7 +22,7 @@ export async function fetchPinnedProjects() {
       createdAt
       description
       url
-      languages (first: 3) {
+      languages (first: 3, orderBy: {direction: DESC, field: SIZE}) {
         nodes{
           name
         }
@@ -69,7 +69,6 @@ export function pinnedProjectsDefaults(
     if (data?.data?.user?.pinnedItems?.nodes) {
         const repos: PinnedRepoResponseType[] =
             data.data.user.pinnedItems.nodes;
-        console.log("Fetched data, should be 'nodes' list: ", repos);
         return repos.map((r) => {
             if (!r) {
                 return null;

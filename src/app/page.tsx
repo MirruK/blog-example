@@ -3,6 +3,7 @@ import { BlogMetadata } from "@/utils/types";
 import { fetchAllBlogs } from "@/utils/blogposts";
 import { ProjectCardList } from "@/components/ProjectCardList";
 import { fetchPinnedProjects } from "@/utils/projects";
+import { BlogPostListing } from "@/components/BlogPostListing";
 
 export const revalidate = 120;
 
@@ -29,7 +30,8 @@ export default async function Home() {
                 <h1 className="text-pink-500 text-xl">Featured Projects</h1>
                 <ProjectCardList cards={pinnedProjectsData}></ProjectCardList>
                 <h1 className="text-pink-500 text-xl">Featured Articles</h1>
-                <BlogCardList cards={postData}></BlogCardList>
+                {/* <BlogCardList cards={postData}></BlogCardList> */}
+                <BlogPostListing posts={postData} ></BlogPostListing>
             </main>
         </>
     );

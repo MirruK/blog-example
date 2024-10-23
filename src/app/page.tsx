@@ -4,6 +4,7 @@ import { fetchAllBlogs } from "@/utils/blogposts";
 import { ProjectCardList } from "@/components/ProjectCardList";
 import { fetchPinnedProjects } from "@/utils/projects";
 import { BlogPostListing } from "@/components/BlogPostListing";
+import { ProjectListing } from "@/components/ProjectListing";
 
 export const revalidate = 120;
 
@@ -27,10 +28,10 @@ export default async function Home() {
                 </p>
             </div>
             <main className="flex w-full min-h-screen flex-col justify-start align-middle gap-12 p-8">
-                <h1 className="text-pink-500 text-xl">Featured Projects</h1>
-                <ProjectCardList cards={pinnedProjectsData}></ProjectCardList>
-                <h1 className="text-pink-500 text-xl">Featured Articles</h1>
-                {/* <BlogCardList cards={postData}></BlogCardList> */}
+                <h1 className="text-2xl">Featured Projects</h1>
+                {/* <ProjectCardList cards={pinnedProjectsData}></ProjectCardList> */}
+                <ProjectListing projects={pinnedProjectsData}></ProjectListing>
+                <h1 className="text-2xl">Featured Articles</h1>
                 <BlogPostListing posts={postData} ></BlogPostListing>
             </main>
         </>

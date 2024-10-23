@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Blog app",
@@ -16,6 +17,7 @@ export default function RootLayout({
       <body className={"min-h-screen"}>
         {/* <NavBar paths={[{ pathLabel: "Home", route: "/" }]}></NavBar> */}
         {children}
+        <Footer />
       </body>
     </html>
   );

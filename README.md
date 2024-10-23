@@ -8,6 +8,8 @@
     - Github graphql url (GITHUB_GRAPHQL_URL)
     - Github API key (GITHUB_API_TOKEN)
     - Github username (GITHUB_USERNAME)
+    - LinkedIn id (LINKED_IN_USER_ID)
+    - Email address (EMAIL)
 
 The content model in contentful has two text fields "title" and "description" and a long markdown text field "postContent"
 
@@ -16,15 +18,13 @@ The content model in contentful has two text fields "title" and "description" an
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+## Deploy
+
+TODO:

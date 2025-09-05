@@ -3,13 +3,9 @@ import { fetchBlogBySlug } from "@/utils/blogposts";
 import { BlogPostType } from "@/utils/types";
 import Link from "next/link";
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function BlogPostPage({ params }: { params: any }) {
   try {
-    const postData: BlogPostType = await fetchBlogBySlug(params.slug);
+    const postData: BlogPostType = await fetchBlogBySlug(params?.slug);
     return <BlogPost blog={postData}></BlogPost>;
   } catch (e) {
     return (

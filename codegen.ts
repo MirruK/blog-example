@@ -2,7 +2,11 @@ import type { CodegenConfig } from "@graphql-codegen/cli";
 import { configDotenv } from "dotenv";
 
 const env = configDotenv();
-if (env.error) process.exit(1);
+if (env.error && !process.env.GITHUB_API_TOKEN) {
+  process.exit(
+    "Could not load .env or GITHUB_API_TOKEN not defined in the environment"
+  );
+}
 
 const config: CodegenConfig = {
   generates: {

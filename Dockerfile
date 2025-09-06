@@ -5,6 +5,9 @@ WORKDIR /app
 # Copy package files first (for caching)
 COPY package.json pnpm-lock.yaml ./
 
+ARG CI
+ARG GITHUB_API_TOKEN
+
 RUN npm install -g pnpm && pnpm install
 
 # Copy source code

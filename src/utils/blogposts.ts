@@ -2,8 +2,8 @@ import { BlogMetadata, BlogPostType } from "./types";
 import { CreateClientParams, createClient } from "contentful";
 
 const CONTENTFUL_HEADERS = {
-  space: process.env.CONTENTFUL_SPACE,
-  accessToken: process.env.CONTENTFUL_API_TOKEN,
+  space: process.env.CONTENTFUL_SPACE || "",
+  accessToken: process.env.CONTENTFUL_API_TOKEN || "",
 } as CreateClientParams;
 
 function blogPostDefaults(data: any): BlogMetadata {

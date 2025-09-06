@@ -10,6 +10,8 @@ RUN npm install -g pnpm && pnpm install
 # Copy source code
 COPY . .
 
+RUN source .env.example
+
 # Build Next.js project
 RUN pnpm run build
 

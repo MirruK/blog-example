@@ -26,7 +26,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/mirruk/blog-example:${{ github.sha }}
+          tags: ghcr.io/mirruk/blog-example:${{ github.sha }}-amd64
           platforms: linux/amd64
           build-args: |
             CI=1
@@ -55,7 +55,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/mirruk/blog-example:${{ github.sha }}
+          tags: ghcr.io/mirruk/blog-example:${{ github.sha }}-arm64
           platforms: linux/arm64
           build-args: |
             CI=1
@@ -83,7 +83,7 @@ jobs:
       - name: Create and push multiarch manifest
         run: |
           docker buildx imagetools create \
-            ghcr.io/mirruk/blog-example:${{ github.sha }} \
-            ghcr.io/mirruk/blog-example:${{ github.sha }}@amd64 \
-            ghcr.io/mirruk/blog-example:${{ github.sha }}@arm64
+            --tag ghcr.io/mirruk/blog-example:${{ github.sha }} \
+            ghcr.io/mirruk/blog-example:${{ github.sha }}-amd64 \
+            ghcr.io/mirruk/blog-example:${{ github.sha }}-arm64
 

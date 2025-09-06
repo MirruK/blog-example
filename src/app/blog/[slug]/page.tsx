@@ -3,9 +3,9 @@ import { fetchBlogBySlug } from "@/utils/blogposts";
 import { BlogPostType } from "@/utils/types";
 import Link from "next/link";
 
-export default async function BlogPostPage({ params }: { params: any }) {
+export default async function BlogPostPage({ params }: any) {
   try {
-    const postData: BlogPostType = await fetchBlogBySlug(params?.slug);
+    const postData: BlogPostType = await fetchBlogBySlug(params.slug);
     return <BlogPost blog={postData}></BlogPost>;
   } catch (e) {
     return (
@@ -18,3 +18,5 @@ export default async function BlogPostPage({ params }: { params: any }) {
     );
   }
 }
+
+export const dynamic = "force-dynamic";

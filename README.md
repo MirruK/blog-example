@@ -5,7 +5,6 @@
 - Create a .env file where you define the following:
     - contentful api key (CONTENTFUL_API_TOKEN)
     - contentful space (CONTENTFUL_SPACE)
-    - Github graphql url (GITHUB_GRAPHQL_URL)
     - Github API key (GITHUB_API_TOKEN)
     - Github username (GITHUB_USERNAME)
     - LinkedIn id (LINKED_IN_USER_ID)

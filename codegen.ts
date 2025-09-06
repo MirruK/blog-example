@@ -3,9 +3,10 @@ import { configDotenv } from "dotenv";
 
 const env = configDotenv();
 if (env.error && !process.env.GITHUB_API_TOKEN) {
-  process.exit(
+  console.error(
     "Could not load .env or GITHUB_API_TOKEN not defined in the environment"
   );
+  process.exit(1);
 }
 
 const config: CodegenConfig = {

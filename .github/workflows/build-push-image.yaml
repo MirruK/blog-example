@@ -18,7 +18,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: MirruK/blog-app:${{ github.sha }}
+          tags: ghcr.io/mirruk/blog-app:${{ github.sha }}
           build-args: |
             CI=1
           # Github does not allow repository secrets starting with "GITHUB_"

@@ -16,7 +16,9 @@ COPY . .
 RUN pnpm run build
 
 # GraphQL codegen
-RUN pnpm run codegen
+RUN --mount=type=secret,id=GITHUB_API_TOKEN \
+    GITHUB_API_TOKEN=$(cat /run/secrets/GITHUB_API_TOKEN) \
+    pnpm run codegen
 
 # Create production image
 FROM node:current-alpine AS runner

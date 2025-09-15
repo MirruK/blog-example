@@ -26,7 +26,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/mirruk/blog-example:${{ github.sha }}-amd64
+          tags: |
+            ghcr.io/mirruk/blog-example:${{ github.sha }}-amd64
+            ghcr.io/mirruk/blog-example:latest-amd64
           platforms: linux/amd64
           build-args: |
             CI=1
@@ -55,7 +57,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/mirruk/blog-example:${{ github.sha }}-arm64
+          tags: |
+            ghcr.io/mirruk/blog-example:${{ github.sha }}-arm64
+            ghcr.io/mirruk/blog-example:latest-arm64
           platforms: linux/arm64
           build-args: |
             CI=1
@@ -84,6 +88,9 @@ jobs:
         run: |
           docker buildx imagetools create \
             --tag ghcr.io/mirruk/blog-example:${{ github.sha }} \
+            --tag ghcr.io/mirruk/blog-example:latest \
             ghcr.io/mirruk/blog-example:${{ github.sha }}-amd64 \
-            ghcr.io/mirruk/blog-example:${{ github.sha }}-arm64
+            ghcr.io/mirruk/blog-example:${{ github.sha }}-arm64 \
+            ghcr.io/mirruk/blog-example:latest-amd64 \
+            ghcr.io/mirruk/blog-example:latest-arm64
 

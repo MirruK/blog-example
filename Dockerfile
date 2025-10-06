@@ -32,3 +32,7 @@ RUN npm install -g pnpm && pnpm install --prod --frozen-lockfile --no-optional
 # Copy built Next.js output
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
+
+ENV NODE_ENV=production
+
+CMD ["npm", "start"]
